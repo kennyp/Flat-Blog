@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 from optparse import OptionParser
-from sys import (stderr,exit)
 import re
 import string
 from markdown import (Markdown,TextPreprocessor)
@@ -25,8 +24,7 @@ def main():
     publish = options.publish and not stdout
 
     if len(articles) == 0:
-        print >> stderr,"At least one file is required"
-        exit(1)
+        parser.error("At least one file is required")
 
     for article in articles:
         print "Processing: " + article
@@ -89,3 +87,4 @@ class CodeBlockPreprocessor(TextPreprocessor):
 # See if we're the main script
 if __name__ == "__main__":
     main()
+
