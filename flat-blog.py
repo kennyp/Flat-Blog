@@ -24,7 +24,7 @@ def main():
     publish = options.publish and not stdout
 
     if len(articles) == 0:
-        parser.error("At least one file is required")
+        parser.error("At least one article is required")
 
     for article in articles:
         print "Processing: " + article
